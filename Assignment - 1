@@ -1,0 +1,72 @@
+# Registration and Login system using Python, file handling
+# Stage - 1
+
+# To register:
+
+#Solution 1
+username = input('Enter your username: ')
+password = input('Enter your password: ')
+confirm_password = input('Enter your password again: ')
+if (password == confirm_password):
+    print('Welcome')
+else:
+    print('Please try again')
+   
+#Solution 2
+import re
+pattern ='[a-z0-9]*@[a-z]*.[a-z]{2,3}'
+username = input('Enter your username: ')
+re.match(pattern,username)
+
+pattern1 = '^(?=\S{5,16}$)(?=.*?\d)(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[^A-Za-z\s0-9])'
+password = input('Enter your password: ')
+re.match(pattern1,password)
+
+
+# Stage - 2
+
+#Solution - 1
+# To store the above input:
+f = open(r"C:\Users\Priya\OneDrive\Desktop\testfile.txt", "a")
+f.write(username)
+f.write(password)
+f.close()
+
+#Solution - 2
+f = open(r"C:\Users\Priya\OneDrive\Desktop\file1.txt", "a")
+f.write(input('Enter your username: '))
+f.write(input('Enter your password: '))
+f.close()
+
+
+# Stage - 3
+f = open(r"C:\Users\Priya\OneDrive\Desktop\file1.txt", "a")
+username = input('Enter your username: ')
+if username in (r"C:\Users\Priya\OneDrive\Desktop\file1.txt"):
+    print('Welcome')
+else:
+    print('Sorry! Username invalid try again or Sign up!')
+    
+# if username exists    
+password = input('Enter your password: ')
+if password in (r"C:\Users\Priya\OneDrive\Desktop\file1.txt"):
+    print('Forgot password')
+    print(input('Enter Email_id to get password: '))
+    if Email_id in (r"C:\Users\Priya\OneDrive\Desktop\file1.txt"):
+         print('Check Email_id to retrieve password')
+    else:
+         print('Invalid Credentials')       
+else:
+    print('Welcome')
+    
+# if new registration
+f = open(r"C:\Users\Priya\OneDrive\Desktop\file1.txt", "a")
+f.write(input('Enter your username: '))
+f.write(input('Enter your password: '))
+f.write(input('confirm_password: '))
+if (password == confirm_password):
+    print('Welcome')
+else:
+    print('Please try again')
+f.close()
+
